@@ -48,13 +48,19 @@ public class AuthCallback extends HttpServlet {
 		// Creazione DataSource
 		IDataSource ds;
 		try {
-			if(dsType.equals("fitbit")){
-				ds = new FitbitDataSource();
-			} else {
-				ds = new NokiaHealthDataSource();
+			switch(dsType){
+				case "fitbit":
+					ds = new FitbitDataSource();
+					break;
+				case "nokia":
+					ds = new NokiaHealthDataSource();
+					break;
+				default:
+					response.getWriter().println("Wrong data source type!");
+					return;
 			}
 			ds.saveAuthResponse(id, params);
-			response.sendRedirect("http://localhost:8080/RMLDataRetriever/UpdateData?ds="+dsType);
+			response.sendRedirect("http://localhost:8080/RMLDataRetrieverTest/UpdateData?ds="+dsType);
 		} catch (ConfigurationException e) {
 			e.printStackTrace();
 		}

@@ -3,6 +3,7 @@
 	<name>RMLDataRetrieverTest</name>
 	<comment></comment>
 	<projects>
+		<project>RMLDataRetriever</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

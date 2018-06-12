@@ -52,7 +52,7 @@ public class UpdateData extends HttpServlet {
 				}
 			} else {
 				// In caso di fallimento il metodo buildAuthRequest costruisce l'URL per reindirizzare l'utente presso il provider
-				response.sendRedirect(ds.buildAuthRequest(id, "http://localhost:8080/RMLDataRetriever/AuthCallback?ds="+dsType));
+				response.sendRedirect(ds.buildAuthRequest(id, "http://localhost:8080/RMLDataRetrieverTest/AuthCallback?ds="+dsType));
 			}
 		} catch (ConfigurationException e) {
 			e.printStackTrace();
